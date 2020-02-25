@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="global.sesoc.board.dao.reply.replyMapper">
+	<insert id="insert" parameterType="reply">
+		insert into reply(
+		replyno,
+		writer,
+		replytext,
+		boardno
+		)
+		values(
+		reply_seq.nextval,
+		#{writer},
+		#{replytext},
+		#{boardno}
+		)
+	</insert>
+	
+	<select id="selectAll" parameterType="int" resultType="reply">
+		select * from reply where boardno = #{boardno} order by regdate
+	</select>
+	
+	<select id="count" resultType="reply">
+		select count(*) as count, boardno from reply group by boardno order by boardno desc
+	</select>
+	
+	<delete id="delete" parameterType="reply">
+		delete from reply where boardno = #{boardno} and replyno = #{replyno} and writer = #{writer}
+	</delete>
+	
+	<update id="modify" parameterType="reply">
+		update reply set
+		regdate = sysdate,
+		replytext = #{replytext}
+		where boardno = #{boardno} and replyno = #{replyno} and writer = #{writer}
+	</update>
+	
+	<select id="getTotalCount" parameterType="int" resultType="int">
+		select count(*) from reply where boardno = #{boardno}
+	</select>
+</mapper>
