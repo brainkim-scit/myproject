@@ -1,4 +1,4 @@
-package com.mynameis.first.dao.board.myAnimal;
+package com.mynameis.first.dao.board;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import com.mynameis.first.util.PageNavigator;
 import com.mynameis.first.vo.myAnimalVO;
 
 @Repository
-public class myAnimalDAO {
+public class myAnimalDataDAO {
 
 	
 	@Autowired
@@ -51,5 +51,11 @@ public class myAnimalDAO {
 		myAnimalMapper mapper = session.getMapper(myAnimalMapper.class);
 		String email = (String) httpsession.getAttribute("loginId");
 		return mapper.myAnimalCount(email);
+	}
+	
+	public ArrayList<myAnimalVO> careAddress(HttpSession httpsession){
+		myAnimalMapper mapper = session.getMapper(myAnimalMapper.class);
+		String email = (String) httpsession.getAttribute("loginId");
+		return mapper.careAddress(email);
 	}
 }

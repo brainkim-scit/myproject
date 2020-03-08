@@ -59,9 +59,6 @@
 <script src="resources/js/jquery.min.js"></script>
 <script>
 $(function(){
-	$("#address").on("click",function(){
-		address();
-	});
 
 	$("#byebye").on("click",function(){
 		var check = confirm("회원을 탈퇴하시겠습니까");
@@ -291,7 +288,7 @@ function addressCheck(){
 	}else{
 		return true;
 	};
-};
+}
 </script>
 </head>
 <body class="is-preload">
@@ -384,6 +381,9 @@ function addressCheck(){
 							</tr>
 						</table>
 					</div>
+				</div>
+				<div class="inner">
+				
 				</div>
 			</div>
 		</div>

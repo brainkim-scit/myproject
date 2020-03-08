@@ -69,11 +69,15 @@
 		select count(*) from myAnimal where email = #{email}
 	</select>
 	
-	<select id="savedCheck" parameterType="String" resultType="int">
+	<select id="savedCheck" parameterType="myAnimal" resultType="int">
 		select count(*) from myAnimal where email = #{email} and desertionNo = #{desertionNo}
 	</select>
 	
-	<delete id="myAnimalDelete" parameterType="animalReply">
+	<delete id="myAnimalDelete" parameterType="myAnimal">
 		delete from myAnimal where email = #{email} and desertionNo = #{desertionNo}
 	</delete>
+	
+	<select id="careAddress" parameterType="String" resultType="myAnimal">
+		select careAddr, careNm, careTel from myAnimal where email = #{email} group by careAddr, careNm, careTel
+	</select>
 </mapper>

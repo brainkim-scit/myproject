@@ -56,4 +56,10 @@ public class animalReplyController {
 		logger.info("동물 댓글 수정 : "+animalReply.toString());
 		return dao.replyModify(animalReply, session);
 	};
+	
+	@GetMapping("/replyCount")
+	public int replyModify(animalReplyVO animalReply) {
+		logger.info("해당 게시글 댓글 갯수 요청 : "+animalReply.getDesertionNo().toString());
+		return dao.replyCount(animalReply);
+	};
 }

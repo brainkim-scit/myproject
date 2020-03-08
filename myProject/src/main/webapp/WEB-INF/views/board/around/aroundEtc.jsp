@@ -111,8 +111,9 @@
 							output += '<a href="'+detail(item,currentPage)+'">';
 							output += '<div class="content">';
 							output += '<p>발견된 장소 : '+item.happenPlace+'</p>';
-							output += '<p>현재 상태 : '+item.processState+'</p>';
 							output += '<p>나이 : '+item.age+'</p>';
+							output += '<hr/>';
+							output += '<p style="font-size:25px;">자세히보기('+replyCount(item.desertionNo)+')</p>';
 							output += '</div>';
 							output += '</a>';
 							output += '</article>';
@@ -126,8 +127,9 @@
 						output += '<a href="'+detail(OthersArr,currentPage)+'">';
 						output += '<div class="content">';
 						output += '<p>발견된 장소 : '+OthersArr.happenPlace+'</p>';
-						output += '<p>현재 상태 : '+OthersArr.processState+'</p>';
 						output += '<p>나이 : '+OthersArr.age+'</p>';
+						output += '<hr/>';
+						output += '<p style="font-size:25px;">자세히보기('+replyCount(item.desertionNo)+')</p>';
 						output += '</div>';
 						output += '</a>';
 						output += '</article>';
@@ -152,6 +154,25 @@
 				}
 			});
 		}
+
+	function replyCount(desertionNo){
+		var count;
+		var data = {"desertionNo":desertionNo};
+		
+		$.ajax({
+			type : "GET",
+			url : "replyCount",
+			data : data,
+			async : false,
+			success : function(result){
+				count = result;
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
+		return count;
+	}
 
 	function detail(item,currentPage){
 		var location = "detail?";
@@ -241,7 +262,7 @@
 							
 							</div>
 							
-							<div id="paging" style="text-align: center; padding-top: 40px;">
+							<div id="paging" style="text-align: center; padding-top: 100px;">
 								
 							</div>
 						</div>

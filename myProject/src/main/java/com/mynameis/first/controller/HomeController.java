@@ -31,5 +31,4 @@ public class HomeController {
 		session.removeAttribute("sigungucode");
 		return "home";
 	}
-	
 }

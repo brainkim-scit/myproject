@@ -114,7 +114,7 @@
 							output += '<p>발견된 장소 : '+item.happenPlace+'</p>';
 							output += '<p>나이 : '+item.age+'</p>';
 							output += '<hr/>';
-							output += '<p style="font-size:25px;">자세히보기</p>';
+							output += '<p style="font-size:25px;">자세히보기('+replyCount(item.desertionNo)+')</p>';
 							output += '</div>';
 							output += '</a>';
 							output += '</article>';
@@ -128,8 +128,9 @@
 						output += '<a href="'+detail(CatArr,currentPage)+'">';
 						output += '<div class="content">';
 						output += '<p>발견된 장소 : '+CatArr.happenPlace+'</p>';
-						output += '<p>현재 상태 : '+CatArr.processState+'</p>';
 						output += '<p>나이 : '+CatArr.age+'</p>';
+						output += '<hr/>';
+						output += '<p style="font-size:25px;">자세히보기('+replyCount(item.desertionNo)+')</p>';
 						output += '</div>';
 						output += '</a>';
 						output += '</article>';
@@ -155,27 +156,46 @@
 			});
 		}
 
-		function detail(item,currentPage){
-			var location = "detail?";
-			location += "desertionNo="+encodeURIComponent(item.desertionNo)+"&";
-			location += "age="+encodeURIComponent(item.age)+"&";
-			location += "careAddr="+encodeURIComponent(item.careAddr)+"&";
-			location += "careNm="+encodeURIComponent(item.careNm)+"&";
-			location += "careTel="+encodeURIComponent(item.careTel)+"&";
-			location += "colorCd="+encodeURIComponent(item.colorCd)+"&";
-			location += "happenDt="+encodeURIComponent(item.happenDt)+"&";
-			location += "happenPlace="+encodeURIComponent(item.happenPlace)+"&";
-			location += "kindCd="+encodeURIComponent(item.kindCd)+"&";
-			location += "processState="+encodeURIComponent(item.processState)+"&";
-			location += "sexCd="+encodeURIComponent(item.sexCd)+"&";
-			location += "neuterYn="+encodeURIComponent(item.neuterYn)+"&";
-			location += "specialMark="+encodeURIComponent(item.specialMark)+"&";
-			location += "weight="+encodeURIComponent(item.weight)+"&";
-			location += "popfile="+encodeURIComponent(item.popfile)+"&";
-			location += "fromWhere="+encodeURIComponent("aroundCat");
-			
-			return location;
-		}
+	function replyCount(desertionNo){
+		var count;
+		var data = {"desertionNo":desertionNo};
+		
+		$.ajax({
+			type : "GET",
+			url : "replyCount",
+			data : data,
+			async : false,
+			success : function(result){
+				count = result;
+			},
+			error : function(e){
+				console.log(e);
+			}
+		});
+		return count;
+	}
+
+	function detail(item,currentPage){
+		var location = "detail?";
+		location += "desertionNo="+encodeURIComponent(item.desertionNo)+"&";
+		location += "age="+encodeURIComponent(item.age)+"&";
+		location += "careAddr="+encodeURIComponent(item.careAddr)+"&";
+		location += "careNm="+encodeURIComponent(item.careNm)+"&";
+		location += "careTel="+encodeURIComponent(item.careTel)+"&";
+		location += "colorCd="+encodeURIComponent(item.colorCd)+"&";
+		location += "happenDt="+encodeURIComponent(item.happenDt)+"&";
+		location += "happenPlace="+encodeURIComponent(item.happenPlace)+"&";
+		location += "kindCd="+encodeURIComponent(item.kindCd)+"&";
+		location += "processState="+encodeURIComponent(item.processState)+"&";
+		location += "sexCd="+encodeURIComponent(item.sexCd)+"&";
+		location += "neuterYn="+encodeURIComponent(item.neuterYn)+"&";
+		location += "specialMark="+encodeURIComponent(item.specialMark)+"&";
+		location += "weight="+encodeURIComponent(item.weight)+"&";
+		location += "popfile="+encodeURIComponent(item.popfile)+"&";
+		location += "fromWhere="+encodeURIComponent("aroundCat");
+		
+		return location;
+	}
 </script>
 </head>
 <body class="is-preload">
@@ -243,7 +263,7 @@
 							
 							</div>
 							
-							<div id="paging" style="text-align: center; padding-top: 40px;">
+							<div id="paging" style="text-align: center; padding-top: 100px;">
 								
 							</div>
 						</div>

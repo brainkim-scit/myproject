@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mynameis.first.dao.board.myAnimal.myAnimalDAO;
+import com.mynameis.first.dao.board.myAnimalDataDAO;
 import com.mynameis.first.util.PageNavigator;
 import com.mynameis.first.vo.myAnimalVO;
 
@@ -22,7 +22,7 @@ import com.mynameis.first.vo.myAnimalVO;
 public class myAnimalDataController {
 	
 	@Autowired
-	myAnimalDAO dao;
+	myAnimalDataDAO dao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(myAnimalDataController.class);
 	
@@ -56,5 +56,11 @@ public class myAnimalDataController {
 		map.put("navi", navi);
 		map.put("list", list);
 		return map;
+	}
+	
+	@GetMapping("/careAddress")
+	public ArrayList<myAnimalVO> careAddressList(HttpSession session){
+		logger.info("보호소 정보 리스트 불러오기");
+		return dao.careAddress(session);
 	}
 }
