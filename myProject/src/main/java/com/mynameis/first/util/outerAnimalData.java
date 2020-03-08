@@ -70,8 +70,8 @@ public class outerAnimalData {
 			session.removeAttribute("sigungucode");
 			return "no";
 		} else {
-			session.setAttribute("sigungucode", sigungucode);
 			session.setAttribute("sidocode", sidocode);
+			session.setAttribute("sigungucode", sigungucode);
 		}
 
 		if (dateSelect == null && session.getAttribute("date") == null) {
