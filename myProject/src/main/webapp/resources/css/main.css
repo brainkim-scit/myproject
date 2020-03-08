@@ -2187,7 +2187,6 @@ input, select, textarea {
 	}
 
 	input[type="text"],
-	input[type="password"],
 	input[type="email"],
 	input[type="tel"],
 	select,
@@ -2206,6 +2205,26 @@ input, select, textarea {
 		text-decoration: none;
 		width: 100%;
 		resize: none;
+	}
+	
+	input[type="password"]
+	{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		background-color: transparent;
+		border-radius: 10px;
+		border-bottom: solid 1px #c9c9c9;
+		color: inherit;
+		display: block;
+		outline: 0;
+		padding-left:15px;
+		text-decoration: none;
+		width: 100%;
+		height:55px;
+		resize: none;
+		font-size: 15px;
 	}
 
 		input[type="text"]:invalid,
@@ -2257,7 +2276,7 @@ input, select, textarea {
 	input[type="password"],
 	input[type="email"],
 	select {
-		height: 3em;
+		height: 36px;
 	}
 
 	textarea {
@@ -2448,6 +2467,10 @@ input, select, textarea {
 		table td {
 			padding: 0.75em 0.75em;
 		}
+		
+		.tdon {
+			padding: 0.65em 0.65em;
+		}
 
 		table th {
 			background-color:rgba(144, 144, 144, 0.075);
@@ -2521,6 +2544,36 @@ input, select, textarea {
 		line-height: 3.45em;
 		overflow: hidden;
 		padding: 0 1.25em 0 1.6em;
+		text-align: center;
+		text-decoration: none;
+		text-overflow: ellipsis;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+	
+	.pwCheck {
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-webkit-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		-ms-transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+		background-color: transparent;
+		border-radius: 4px;
+		border: 0;
+		outline:none;
+		box-shadow: inset 0 0 0 2px #585858;
+		color: #585858 !important;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 0.8em;
+		font-weight: 900;
+		height: 3.5em;
+		line-height: 3.45em;
+		overflow: hidden;
+		padding: -1 1.25em 0 1.6em;
 		text-align: center;
 		text-decoration: none;
 		text-overflow: ellipsis;
@@ -2666,7 +2719,7 @@ input, select, textarea {
 					-moz-transition: background-color 0.5s ease, opacity 0.5s ease;
 					-webkit-transition: background-color 0.5s ease, opacity 0.5s ease;
 					-ms-transition: background-color 0.5s ease, opacity 0.5s ease;
-					transition: background-color 0.5s ease, opacity 0.5s ease;
+					transition: background-color 0.5s ease, opacity 10s ease;
 					content: '';
 					display: block;
 					position: absolute;

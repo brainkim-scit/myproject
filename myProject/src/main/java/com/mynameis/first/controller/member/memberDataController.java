@@ -1,9 +1,13 @@
 package com.mynameis.first.controller.member;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mynameis.first.dao.member.memberDAO;
@@ -26,5 +30,23 @@ public class memberDataController {
 		}else {
 			return "no";
 		}
+	}
+	
+	@PostMapping("/pwCheck")
+	public String pwCheck(HttpSession session, myMemberVO member) {
+		String email = (String) session.getAttribute("loginId");
+		member.setEmail(email);
+		logger.info("비밀번호 변경 체크 : "+member.toString());
+		if(dao.selectMember(member) == null) {
+			return "fail";
+		}else return "success";
+	}
+	
+	@PostMapping("/goModify")
+	public int goModify(HttpSession session, myMemberVO member) {
+		logger.info("회원정보 변경 : "+member.toString());
+		String email = (String) session.getAttribute("loginId");
+		member.setEmail(email);
+		return dao.updateMember(member);
 	}
 }

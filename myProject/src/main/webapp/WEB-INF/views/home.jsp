@@ -13,6 +13,18 @@
 		alert("회원가입을 환영합니다!");
 	</script>
 </c:if>
+
+<c:if test="${byebye == true}">
+	<script type="text/javascript">
+		alert("지금까지 이용해주셔서 감사합니다");
+	</script>
+</c:if>
+
+<c:if test="${byebye == false}">
+	<script type="text/javascript">
+		alert("회원탈퇴를 실패하였습니다");
+	</script>
+</c:if>
 </head>
 <body class="is-preload">
 	<div id="wrapper">

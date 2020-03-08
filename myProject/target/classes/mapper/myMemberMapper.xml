@@ -33,4 +33,25 @@
 			and pw = #{pw}
 		</if>
 	</select>
+	
+	<update id="updateMember" parameterType="member">
+		update myMember set
+				memberno = #{memberno}
+			<if test="pw != null">
+				, pw = #{pw}
+			</if>
+			
+			<if test="address != null">
+				, address = #{address}
+				, sido = #{sido}
+				, sigungu = #{sigungu}
+				, sidocode = #{sidocode}
+				, sigungucode = #{sigungucode}
+			</if>
+		where email = #{email}
+	</update>
+	
+	<delete id="deleteMember" parameterType="member">
+		delete from myMember where email = #{email} and memberno = #{memberno}
+	</delete>
 </mapper>

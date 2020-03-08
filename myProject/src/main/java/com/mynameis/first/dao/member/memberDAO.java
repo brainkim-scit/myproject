@@ -23,6 +23,20 @@ public class memberDAO {
 		return result;
 	};
 	
+	public int deleteMember(myMemberVO member) {
+		memberMapper mapper = session.getMapper(memberMapper.class);
+		int result = mapper.deleteMember(member);
+		logger.info("deleteMember 결과 : "+result);
+		return result;
+	};
+	
+	public int updateMember(myMemberVO member) {
+		memberMapper mapper = session.getMapper(memberMapper.class);
+		int result = mapper.updateMember(member);
+		logger.info("updateMember 결과 : "+result);
+		return result;
+	};
+	
 	public myMemberVO selectMember(myMemberVO member) {
 		memberMapper mapper = session.getMapper(memberMapper.class);
 		myMemberVO result = mapper.selectMember(member);

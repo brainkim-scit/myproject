@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -66,10 +67,36 @@ public class memberController {
 		}
 	}
 	
+	@GetMapping("/mypage")
+	public String myPageView(HttpSession session, Model model) {
+		myMemberVO member= new myMemberVO();
+		String email = (String) session.getAttribute("loginId");
+		member.setEmail(email);
+		logger.info("마이 페이지 : "+member.toString());
+		model.addAttribute("user", dao.selectMember(member));
+		return "member/myPage";
+	}
+	
 	@GetMapping("/logout")
 	public String logout(HttpSession session) {
 		logger.info("로그아웃");
 		session.invalidate();
+		return "redirect:/";
+	}
+	
+	
+	@GetMapping("/byebye")
+	public String byebye(HttpSession session, myMemberVO member, RedirectAttributes rttr) {
+		logger.info("회원탈퇴 : "+member.toString());
+		String email = (String) session.getAttribute("loginId");
+		member.setEmail(email);
+		session.invalidate();
+		int result = dao.deleteMember(member);
+		if(result == 1) {
+			rttr.addFlashAttribute("byebye", true);
+		}else {
+			rttr.addFlashAttribute("byebye", false);
+		}
 		return "redirect:/";
 	}
 }

@@ -203,19 +203,25 @@ function passwordCheck(){
 	var pw = $("#pw").val();
 	var pwCheck = $("#pwCheck").val();
 
-	if ((pw.trim().length < 5 && pw.trim().length >0) || pw.trim().length > 8) {
+	if (pw.trim().length == 0) {
+		$("#pwCheckNotice").text("");
+		return false;
+	}else if((pw.trim().length < 4 && pw.trim().length >0) || pw.trim().length > 8){
 		$("#pwCheckNotice").text("4자리 이상 8자리 이하로 입력해주세요");
 		return false;
-	}else if(pw.trim().length == 0){
+	}else if(pw.trim().length > 3 && pw.trim().length < 9){
 		$("#pwCheckNotice").text("");
-		return false;
-	}else if(pw != pwCheck && pwCheck != 0){
-		$("#pwCheckNotice").text("패스워드가 맞지 않습니다");
-		return false;
-	}else{
-		$("#pwCheckNotice").text("");
-		return true;
-	};
+		if(pw != pwCheck && pwCheck == 0){
+			$("#pwCheckNotice").text("");
+			return false;
+		}else if(pw != pwCheck && pwCheck != 0){
+			$("#pwCheckNotice").text("패스워드가 맞지 않습니다");
+			return false;
+		}else{
+			$("#pwCheckNotice").text("");
+			return true;
+		}
+	}
 };
 
 function nameCheck(){
