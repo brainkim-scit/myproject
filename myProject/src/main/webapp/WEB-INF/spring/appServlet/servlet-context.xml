@@ -23,7 +23,7 @@
 	
 	<context:component-scan base-package="com.mynameis.first" />
 	
-<!-- 	<beans:bean id="ioginInterceptor" class="com.mynameis.first.interceptor.LoginInterceptor"/> -->
+	<beans:bean id="LoginInterceptor" class="com.mynameis.first.interceptor.LoginInterceptor"/>
 	
 		<interceptors>
 			<interceptor>
@@ -39,7 +39,7 @@
 				<mapping path="myAnimal"/>
 				<mapping path="mypage"/>
 				
-				<beans:ref bean="loginInterceptor"/>
+				<beans:ref bean="LoginInterceptor"/>
 			</interceptor>
 		</interceptors>
 	
