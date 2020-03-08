@@ -4,9 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias type="com.mynameis.first.vo." alias=""/> -->
+		<typeAlias type="com.mynameis.first.vo.myMemberVO" alias="member"/>
+		<typeAlias type="com.mynameis.first.vo.animalReplyVO" alias="animalReply"/>
+		<typeAlias type="com.mynameis.first.vo.myAnimalVO" alias="myAnimal"/>
 	</typeAliases>
 	<mappers>
-<!-- 		<mapper resource="mapper/mynameisMapper.xml" /> -->
+		<mapper resource="mapper/myMemberMapper.xml" />
+		<mapper resource="mapper/animalReplyMapper.xml" />
+		<mapper resource="mapper/myAnimalMapper.xml" />
 	</mappers>
 </configuration>

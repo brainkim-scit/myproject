@@ -1,151 +1,82 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="function" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html>
 <head>
-	<title>First</title>
-<style type="text/css">
-	body{
-		margin: 0;
-		width: 1536px;
-	}
-		
-	div#main{
-		position: absolute;
-		top:100px;
-		width:1536px;
-		height: 50px;
-		background: rgb(9,15,55);
-		z-index: 1;
-	}
-	
-	div.right.on{
-		position: absolute;
-		left: 1281px;
-		width: 260px;
-		height: 100%;
-		background: rgb(9,15,55);
-		z-index: 0;
-	}
-	
-	img.homeimg{
-		vertical-align: top;
-		height: 50px;
-	}
-	
-	div.premenu{
-		position: relative;
-		left:900px;
-		text-align:center;
-		width: 50px;
-		height: 50px;
-		line-height:50px;
-		display: inline-block;
-	}
-	
-	div.menu{
-		position: relative;
-		left:900px;
-		text-align:center;
-		width: 330px;
-		height:50px;
-		display: inline-block;
-	}
-	
-	div#menulist{
-		position:relative;
-		display:inline-block;
-		left:890px;
-		width:260px;
-		height:50px;
-		line-height:50px;
-		text-align:center;
-		color: white;
-	}
-	
-	div.buttonOnMain{
-		width: 100px;
-		height: 50px;
-		line-height:50px;
-		color: white;
-		cursor: pointer;
-		display: inline-block;
-		text-align: center;
-	}
-	div.buttonOnMain:hover{
-		background: rgb(41,64,220);
-	}
-	
-	div.buttonOnMain:active{
-		opacity: 0.5;
-	}
-	
-	a{
-		text-decoration: none;
-	}
-</style>
-<script src="resources/js/jquery-3.4.1.min.js"></script>
-<script src="resources/js/jquery-ui.min.js"></script>
-<script>
-$(function(){
-	$("#login").on("click",function(){
-		location.href = "/login";
-	});
-
-	$("#signup").on("click",function(){
-		location.href = "/signup";
-	});
-
-	$("#mypage").on("click",function(){
-		location.href = "/mypage";
-	});
-
-	$("#menulist").on("click",function(){
-		if($(".right").hasClass("on")){
-			$(".right").removeClass("on");
-		}else{
-			$(".right").addClass("on");
-		}
-	});
-});
-</script>
+<title>How many abandoned animals around you</title>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no" />
+<link rel="stylesheet" href="resources/css/main.css" />
+<c:if test="${signupResult == true}">
+	<script type="text/javascript">
+		alert("회원가입을 환영합니다!");
+	</script>
+</c:if>
 </head>
-<body>
+<body class="is-preload">
 	<div id="wrapper">
-		<div id="homepage">
-		</div>
-		<div id="main">
-			<div class="premenu">
-				<a href="./">
-					<img class="homeimg" src='<c:url value="resources/img/preButton.png"/>'>
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<a href="" class="logo">
+					<span class="title">How many abandoned animals around you</span>
 				</a>
+
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
 			</div>
-			<div class="menu">
-				<c:if test="${sessioinScope.id == null}">
-					<div id="login" class="buttonOnMain">login</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="./">Home</a></li>
+				<c:if test="${sessionScope.loginId == null}">
+					<li><a href="login">Login / Signup</a></li>
 				</c:if>
-			
-				<c:if test="${sessioinScope.id == null}">
-					<div id="signup" class="buttonOnMain">회원가입</div>
+				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="around">내 주위 유기동물</a></li>
 				</c:if>
-				
-				<c:if test="${sessioinScope.id == null}">
-					<div id="mypage" class="buttonOnMain">myPage</div>
+				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="outer">내가 사는 곳 너머의 유기동물</a></li>
 				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="myAnimal">내 관심 동물</a></li>
+				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="mypage">개인정보수정</a></li>
+				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="logout">Logout</a></li>
+				</c:if>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<header>
+					<h1>내 주위의 유기동물</h1>
+				</header>
+
+				<div>
+					<img src="resources/images/main.jpg">
+				</div>
 			</div>
-			<div id="menulist" class="buttonOnMain">
-				MENU
-			</div>
-		</div>
-		<div class="right">
-<!-- 			<div class="boardmenu"> -->
-<!-- 				게시판 메뉴 -->
-<!-- 			</div> -->
-<!-- 			<div class="bodyMenu"> -->
-<!-- 				게시판 나타나도록 -->
-<!-- 			</div> -->
 		</div>
 	</div>
+	<!-- Scripts -->
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/browser.min.js"></script>
+	<script src="resources/js/breakpoints.min.js"></script>
+	<script src="resources/js/util.js"></script>
+	<script src="resources/js/main.js"></script>
 </body>
 </html>

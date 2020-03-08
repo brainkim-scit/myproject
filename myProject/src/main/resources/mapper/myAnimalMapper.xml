@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mynameis.first.dao.board.myAnimal.myAnimalMapper">
+	<insert id="myAnimalInsert" parameterType="myAnimal">
+		insert into myAnimal(
+			animalNo,
+			email,
+			desertionNo,
+			age,
+			careAddr,
+			careNm,
+			careTel,
+			colorCd,
+			happenDt,
+			happenPlace,
+			kindCd,
+			processState,
+			sexCd,
+			specialMark,
+			weight,
+			neuterYn,
+			popfile
+		)values(
+			myAnimal_seq.nextval,
+			#{email},
+			#{desertionNo},
+			#{age},
+			#{careAddr},
+			#{careNm},
+			#{careTel},
+			#{colorCd},
+			#{happenDt},
+			#{happenPlace},
+			#{kindCd},
+			#{processState},
+			#{sexCd},
+			#{specialMark},
+			#{weight},
+			#{neuterYn},
+			#{popfile}
+		)
+	</insert>
+	
+	<select id="listAll" parameterType="String" resultType="myAnimal">
+		select
+			animalNo,
+			email,
+			desertionNo,
+			age,
+			careAddr,
+			careNm,
+			careTel,
+			colorCd,
+			happenDt,
+			happenPlace,
+			kindCd,
+			processState,
+			sexCd,
+			specialMark,
+			weight,
+			neuterYn,
+			popfile,
+			to_char(to_date(insertDate),'yyyy.mm.dd') as insertDate
+		from myAnimal where email = #{email} order by insertDate desc
+	</select>
+	
+	<select id="myAnimalCount" parameterType="String" resultType="int">
+		select count(*) from myAnimal where email = #{email}
+	</select>
+	
+	<select id="savedCheck" parameterType="String" resultType="int">
+		select count(*) from myAnimal where email = #{email} and desertionNo = #{desertionNo}
+	</select>
+	
+	<delete id="myAnimalDelete" parameterType="animalReply">
+		delete from myAnimal where email = #{email} and desertionNo = #{desertionNo}
+	</delete>
+</mapper>

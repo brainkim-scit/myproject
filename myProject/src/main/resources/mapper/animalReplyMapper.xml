@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mynameis.first.dao.reply.animalReplyMapper">
+	<insert id="replyInsert" parameterType="animalReply">
+		insert into animalReply(
+			animalReplyNum,
+			desertionNo,
+			email,
+			username,
+			replyContent
+		)
+		values(
+			animalReply_seq.nextval,
+			#{desertionNo},
+			#{email},
+			#{username},
+			#{replyContent}
+		)
+	</insert>
+	
+	<select id="listAll" parameterType="animalReply" resultType="animalReply">
+		select
+			animalReplyNum,
+			desertionNo,
+			email,
+			username,
+			replyContent,
+			to_char(to_date(replyDate),'yyyy.mm.dd') as replyDate
+			from animalReply where desertionNo = #{desertionNo}
+			order by animalReplyNum
+	</select>
+	
+	<select id="replyCount" parameterType="animalReply" resultType="int">
+		select count(*) from animalReply where desertionNo = #{desertionNo}
+	</select>
+	
+	<delete id="replyDelete" parameterType="animalReply">
+		delete from animalReply where animalReplyNum = #{animalReplyNum} and email = #{email}
+	</delete>
+	
+	<update id="replyModify" parameterType="animalReply">
+		update animalReply set
+			replyContent = #{replyContent},
+			replyDate = sysdate
+		where animalReplyNum = #{animalReplyNum} and email = #{email}
+	</update>
+</mapper>
