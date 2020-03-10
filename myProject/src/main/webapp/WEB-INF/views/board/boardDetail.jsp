@@ -17,6 +17,7 @@ td{
 
 .photo {
 	width: 450px;
+	height: 340px;
 }
 
 #popfile {

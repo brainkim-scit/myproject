@@ -51,8 +51,10 @@ public class myAnimalDataController {
 		Map<String, Object> map = new HashMap<String, Object>();
 		logger.info("내 관심 동물 리스트 불러오기");
 		int totalRecordCount = dao.myAnimalCount(session);
+		currentPage = 1;
 		PageNavigator navi = new PageNavigator(currentPage, totalRecordCount);
 		ArrayList<myAnimalVO> list = dao.listAll(navi,session);
+		System.out.println(list.size());
 		map.put("navi", navi);
 		map.put("list", list);
 		return map;

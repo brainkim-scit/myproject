@@ -95,7 +95,7 @@ public class outerAnimalData {
 		StringBuilder urlBuilder = new StringBuilder(
 				"http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic");
 		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8")
-				+ "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+				+ "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("bgnde", "UTF-8") + "=" + URLEncoder.encode(dateSelect, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("endde", "UTF-8") + "=" + URLEncoder.encode(set[0], "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("upr_cd", "UTF-8") + "=" + URLEncoder.encode(sidocode, "UTF-8"));

@@ -63,6 +63,9 @@
 					<li><a href="myAnimal">내 관심 동물</a></li>
 				</c:if>
 				<c:if test="${sessionScope.loginId != null}">
+					<li><a href="chatting">채팅</a></li>
+				</c:if>
+				<c:if test="${sessionScope.loginId != null}">
 					<li><a href="mypage">개인정보수정</a></li>
 				</c:if>
 				<c:if test="${sessionScope.loginId != null}">

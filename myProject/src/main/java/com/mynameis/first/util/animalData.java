@@ -82,7 +82,7 @@ public class animalData {
 			String sidocode = mdao.selectMember(member).getSidocode();
 		
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/abandonmentPublic");
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("bgnde", "UTF-8") + "="+ URLEncoder.encode(dateSelect, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("endde", "UTF-8") + "="+ URLEncoder.encode(set[0], "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("upr_cd", "UTF-8") + "="+ URLEncoder.encode(sidocode, "UTF-8"));
@@ -111,7 +111,7 @@ public class animalData {
 	@RequestMapping(value = "/sido", method = RequestMethod.GET, produces = "application/text;charset=utf-8")
 	public String sidoData() throws ServletException, IOException {
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sido");
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="+ URLEncoder.encode("100", "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("_type", "UTF-8") + "="+ URLEncoder.encode("json", "UTF-8"));
 		
@@ -134,7 +134,7 @@ public class animalData {
 	@RequestMapping(value = "/sigungu", method = RequestMethod.GET, produces = "application/text;charset=utf-8")
 	public String sigunguData(String sidocode) throws ServletException, IOException {
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu");
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("upr_cd", "UTF-8") + "="+ URLEncoder.encode(sidocode, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="+ URLEncoder.encode("100", "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("_type", "UTF-8") + "="+ URLEncoder.encode("json", "UTF-8"));
@@ -158,7 +158,7 @@ public class animalData {
 	@RequestMapping(value = "/protect", method = RequestMethod.GET, produces = "application/text;charset=utf-8")
 	public String protectData(String sidocode, String sigungucode) throws ServletException, IOException {
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/sigungu");
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("upr_cd", "UTF-8") + "="+ URLEncoder.encode(sidocode, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("org_cd", "UTF-8") + "="+ URLEncoder.encode(sigungucode, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="+ URLEncoder.encode("100", "UTF-8"));
@@ -184,7 +184,7 @@ public class animalData {
 	public String protectData(String type) throws ServletException, IOException {
 		
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.animal.go.kr/openapi/service/rest/abandonmentPublicSrvc/kind");
-		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=mTb7y%2F%2BslyOYTh4sTg5%2Fajkb9VUd0B9jUaQPEIngD92L5sWXcyMyQBTNMnlraYwtylHLs2kimbJXgtsNaHr09A%3D%3D");
+		urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=88xmBny%2BF5A417RvKIOXjwiNmdFjzgJPOczILxaanDA7v2jRu5pZ8%2BDXf8YKrq7YNdUw2kD8AP9F%2FjUQvyhU%2BQ%3D%3D");
 		urlBuilder.append("&" + URLEncoder.encode("up_kind_cd", "UTF-8") + "="+ URLEncoder.encode(type, "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "="+ URLEncoder.encode("100", "UTF-8"));
 		urlBuilder.append("&" + URLEncoder.encode("_type", "UTF-8") + "="+ URLEncoder.encode("json", "UTF-8"));

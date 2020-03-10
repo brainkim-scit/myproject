@@ -66,6 +66,10 @@ $(function(){
 			location.href = "byebye?memberno=${requestScope.user.memberno}"
 		}
 	});
+
+	$("#address").on("click",function(){
+		address();
+	});
 });
 
 function pwCheck(){
@@ -120,12 +124,14 @@ function passwordCheck(){
 		$("#notice1").text("");
 	}else if((pw.trim().length < 4 && pw.trim().length >0) || pw.trim().length > 8){
 		$("#notice1").text("4자리 이상 8자리 이하로 입력해주세요");
+		$("#change").prop("disabled",true);
 	}else if(pw.trim().length > 3 && pw.trim().length < 9){
 		$("#notice1").text("");
 		if(pw != pwCheck && pwCheck == 0){
 			$("#notice2").text("");
 		}else if(pw != pwCheck && pwCheck != 0){
 			$("#notice2").text("패스워드가 맞지 않습니다");
+			$("#change").prop("disabled",true);
 		}else{
 			$("#notice2").text("");
 			$("#change").prop("disabled",false);
@@ -175,6 +181,11 @@ function goModify(){
 			}
 		});
 	}
+}
+
+function finish(){
+
+	
 }
 
 function changing(original, change){

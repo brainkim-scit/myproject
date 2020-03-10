@@ -43,7 +43,7 @@ public class myAnimalDataDAO {
 	public ArrayList<myAnimalVO> listAll(PageNavigator navi,HttpSession httpsession) {
 		myAnimalMapper mapper = session.getMapper(myAnimalMapper.class);
 		String email = (String) httpsession.getAttribute("loginId");
-		RowBounds rb = new RowBounds(navi.getCurrentPage(), navi.getCountPerPage());
+		RowBounds rb = new RowBounds(navi.getStartRecord(), navi.getCountPerPage());
 		return mapper.listAll(email, rb);
 	}
 	

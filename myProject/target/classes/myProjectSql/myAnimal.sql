@@ -5,12 +5,12 @@ create table myAnimal(
     email varchar2(60) references myMember(email) on delete cascade,
     desertionNo varchar2(100) unique,
     age varchar2(20),
-    careAddr varchar2(80),
+    careAddr varchar2(200),
     careNm varchar2(50),
     careTel varchar2(50),
     colorCd varchar2(30),
     happenDt varchar2(50),
-    happenPlace varchar2(100),
+    happenPlace varchar2(200),
     kindCd varchar2(50),
     processState varchar2(50),
     sexCd varchar2(20),
@@ -22,5 +22,3 @@ create table myAnimal(
     );
 
 create sequence myAnimal_seq;
-
-select * from myAnimal where email = 'tmdcjf6363@naver.com' order by insertDate desc;

@@ -159,7 +159,6 @@
 			}
 		});
 	}
-	}
 
 	function paging(totalRecordCount, currentPage){
 		var data = {"totalRecordCount":totalRecordCount, "currentPage":currentPage};
