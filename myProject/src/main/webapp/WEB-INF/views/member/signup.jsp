@@ -180,8 +180,8 @@ function signupValidation() {
 };
 
 function idCheck(result){
-	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
-	var regExp2 =  /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g;
+	var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i; // 이메일 주소 형태로만 받기
+	var regExp2 =  /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/g; // 한글 글자 형태로만 받기
 	var email = $("#email").val();
 	
 	if (email.trim().length == 0) {

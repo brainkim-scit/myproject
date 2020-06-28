@@ -1,5 +1,7 @@
 package com.mynameis.first.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.servlet.http.HttpSession;
@@ -29,6 +31,9 @@ public class HomeController {
 		session.removeAttribute("date");
 		session.removeAttribute("sidocode");
 		session.removeAttribute("sigungucode");
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+		System.out.println(dateFormat.format(date));
 		return "home";
 	}
 }

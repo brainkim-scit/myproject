@@ -53,9 +53,9 @@
 				<c:if test="${sessionScope.loginId == null}">
 					<li><a href="login">Login / Signup</a></li>
 				</c:if>
-				<c:if test="${sessionScope.loginId != null}">
+<%-- 				<c:if test="${sessionScope.loginId != null}"> --%>
 					<li><a href="around">내 주위 유기동물</a></li>
-				</c:if>
+<%-- 				</c:if> --%>
 				<c:if test="${sessionScope.loginId != null}">
 					<li><a href="outer">내가 사는 곳 너머의 유기동물</a></li>
 				</c:if>

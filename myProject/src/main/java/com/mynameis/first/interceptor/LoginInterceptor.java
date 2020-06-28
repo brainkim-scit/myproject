@@ -11,15 +11,15 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	
 	private static final Logger logger = LoggerFactory.getLogger(LoginInterceptor.class);
 
-	@Override
-	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
-		logger.info("로그인 인터셉터");
-		String loginId = (String) request.getSession().getAttribute("loginId");
-		if(loginId == null) {
-			String contextPath = request.getContextPath();
-			response.sendRedirect(contextPath+"/login");
-			return false;
-		}else return true;
-	}
+//	@Override
+//	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+//			throws Exception {
+//		logger.info("로그인 인터셉터");
+//		String loginId = (String) request.getSession().getAttribute("loginId");
+//		if(loginId == null) {
+//			String contextPath = request.getContextPath();
+//			response.sendRedirect(contextPath+"/login");
+//			return false;
+//		}else return true;
+//	}
 }
